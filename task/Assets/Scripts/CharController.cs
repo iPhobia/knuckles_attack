@@ -11,22 +11,15 @@ public class CharController : MonoBehaviour {
     }
 
     public Rigidbody rBody;
-    public float speed = 10.0f;
-    public float rotationSpeed = 100.0f;
+    public float speed = 10f;
+    public float rotationSpeed = 100f;
     public Boundary boundary;
 
-    
-    
-
-    private void Start()
-    {
-        rBody = GetComponent<Rigidbody>();
-    }
+    private float movement;
+    private float rotation;
 
     private void FixedUpdate()
     {
-        float movement = Input.GetAxis("Vertical") * speed;
-        float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
         movement *= Time.deltaTime;
         rotation *= Time.deltaTime;
         rBody.position = new Vector3
@@ -36,12 +29,13 @@ public class CharController : MonoBehaviour {
            Mathf.Clamp(rBody.position.z, boundary.zMin, boundary.zMax)
        );
 
-        rBody.transform.Translate(movement, 0.0f, 0.0f );
-        rBody.transform.Rotate(0.0f, 0.0f, rotation);
+        rBody.transform.Translate(0f, 0.0f, movement );
+        rBody.transform.Rotate(0.0f, rotation, 0f);
     }
 
     private void Update()
     {
-        
+        movement = Input.GetAxis("Vertical") * speed;
+        rotation = Input.GetAxis("Horizontal") * rotationSpeed;
     }
 }
