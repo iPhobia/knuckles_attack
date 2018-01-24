@@ -46,7 +46,7 @@ public class GunController : MonoBehaviour {
         onNextGun += SwitchToNext;
         onPreviousGun += SwitchToPrevious;
         onFire += TryToFire;
-        currentGun = guns[1];
+        currentGun = guns[0];
     }
 
     private void OnDestroy()
