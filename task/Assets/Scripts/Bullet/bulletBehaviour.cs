@@ -24,7 +24,7 @@ public class bulletBehaviour : MonoBehaviour {
         Debug.Log(other.gameObject.name);
         if (other.gameObject.tag == "Enemy")
         {
-            other.gameObject.GetComponent<EnemyHealthManager>().HurtEnemy(damageToGive);
+            other.gameObject.GetComponent<EnemyHealthManager>().OnDamage(damageToGive);
             Destroy(gameObject);
         }
     }

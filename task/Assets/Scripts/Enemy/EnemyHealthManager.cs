@@ -4,27 +4,29 @@ using UnityEngine;
 
 public class EnemyHealthManager : MonoBehaviour {
 
-    public int enemyHealth;
+    public int health;
 
-    private int currentEnemyHealth;
+    private int currentHealth;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
 
-        currentEnemyHealth = enemyHealth;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        currentHealth = health;
+    }
 
-        if (currentEnemyHealth <= 0)
+    // Update is called once per frame
+    void Update()
+    {
+
+        if (currentHealth <= 0)
         {
             Destroy(gameObject);
         }
-	}
+    }
 
-    public void HurtEnemy(int damage)
+    public void OnDamage(int damage)
     {
-        currentEnemyHealth -= damage;
+        currentHealth -= damage;
     }
 }
